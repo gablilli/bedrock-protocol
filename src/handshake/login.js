@@ -4,7 +4,8 @@ const { PUBLIC_KEY } = require('./constants')
 const algorithm = 'ES384'
 
 module.exports = (client, server, options) => {
-  const skinData = require('minecraft-data')('bedrock_' + options.version).defaultSkin
+  const dataVersion = options.version === '26.13' ? '1.26.0' : options.version
+  const skinData = require('minecraft-data')('bedrock_' + dataVersion).defaultSkin
   // TODO: Use feature or ver compare functions
   const protocolVersion = options.protocolVersion || 0
   const useOidcOfflineLogin = protocolVersion >= 944
