@@ -1,3 +1,6 @@
+## 3.56.0
+* 26.13 support (hotfix: custom entity components runtime ID fix, emote revert fix)
+
 ## 3.55.0
 * [26.10 support (#710)](https://github.com/PrismarineJS/bedrock-protocol/commit/ee353573bf9076581edc622a0d0462dc0a715d0e) (thanks @extremeheat)
 
