@@ -59,7 +59,8 @@ class Client extends Connection {
 
   _loadFeatures () {
     try {
-      const mcData = require('minecraft-data')('bedrock_' + this.options.version)
+      const dataVersion = this.options.version === '26.13' ? '26.10' : this.options.version
+      const mcData = require('minecraft-data')('bedrock_' + dataVersion)
       this.features = {
         compressorInHeader: mcData.supportFeature('compressorInPacketHeader'),
         itemRegistryPacket: mcData.supportFeature('itemRegistryPacket'),
