@@ -31,7 +31,8 @@ class Server extends EventEmitter {
 
   _loadFeatures (version) {
     try {
-      const mcData = require('minecraft-data')('bedrock_' + version)
+      const dataVersion = version === '26.13' ? '26.10' : version
+      const mcData = require('minecraft-data')('bedrock_' + dataVersion)
       this.features = {
         compressorInHeader: mcData.supportFeature('compressorInPacketHeader'),
         newLoginIdentityFields: mcData.supportFeature('newLoginIdentityFields')
@@ -40,7 +41,7 @@ class Server extends EventEmitter {
       throw new Error(`Unsupported version: '${version}', no data available`)
     }
   }
-
+  
   setCompressor (algorithm, level = 1, threshold = 256) {
     switch (algorithm) {
       case 'none':
